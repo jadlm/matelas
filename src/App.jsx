@@ -294,7 +294,7 @@ export default function App() {
         <Hero />
         <Collections />
         <MattressDetails />
-        <Tradition />
+        <TraditionVideo />
         <Craftsmanship />
       </main>
       <Footer />
