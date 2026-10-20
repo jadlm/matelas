@@ -121,15 +121,16 @@ button {
   display: grid;
   min-height: 626px;
   grid-template-columns: 47% 53%;
-  align-items: center;
+  align-content: center;
+  align-items: start;
+  grid-template-rows: auto auto auto auto auto;
   padding: 48px 7.1% 67px;
 }
 
-.hero-copy {
-  position: relative;
-  z-index: 1;
-  max-width: 510px;
-  padding: 0 24px 0 0;
+.hero-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 18px;
 }
 
 .eyebrow {
@@ -160,11 +161,33 @@ h1, h2 {
 }
 
 .hero h1 {
+  grid-column: 1;
+  grid-row: 2;
   max-width: 520px;
   margin-bottom: 24px;
   font-size: clamp(54px, 6.15vw, 86px);
   letter-spacing: -3.6px;
   line-height: 0.99;
+}
+
+.hero-video-frame {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: start;
+  width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #171a17;
+  box-shadow: 0 18px 38px rgba(38, 35, 27, .18);
+}
+
+.hero-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #111;
 }
 
 h1 em, h2 em {
@@ -173,6 +196,8 @@ h1 em, h2 em {
 }
 
 .hero-description {
+  grid-column: 1;
+  grid-row: 3;
   max-width: 400px;
   margin-bottom: 30px;
   color: #74766e;
@@ -181,6 +206,8 @@ h1 em, h2 em {
 }
 
 .hero-actions {
+  grid-column: 1;
+  grid-row: 4;
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
@@ -221,6 +248,8 @@ h1 em, h2 em {
 }
 
 .hero-note {
+  grid-column: 1;
+  grid-row: 5;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -711,8 +740,8 @@ h1 em, h2 em {
 .tradition {
   position: relative;
   display: grid;
-  min-height: 543px;
-  grid-template-columns: 1fr 1.04fr;
+  min-height: 390px;
+  grid-template-columns: 1fr;
   gap: 7%;
   align-items: center;
   overflow: hidden;
@@ -737,6 +766,7 @@ h1 em, h2 em {
 .tradition-copy {
   position: relative;
   z-index: 1;
+  max-width: 720px;
 }
 
 .eyebrow-light {
@@ -1185,26 +1215,39 @@ h1 em, h2 em {
 
   .hero {
     grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 60px 6% 50px;
-  }
-
-  .hero-copy {
-    padding-right: 0;
+    grid-template-rows: none;
+    gap: 20px;
+    padding: 46px 6% 50px;
   }
 
   .hero h1 {
+    grid-column: 1;
+    grid-row: auto;
     max-width: 550px;
     font-size: clamp(56px, 12vw, 78px);
+    margin-bottom: 0;
+  }
+
+  .hero-eyebrow,
+  .hero-video-frame,
+  .hero-description,
+  .hero-actions,
+  .hero-note {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 0;
+  }
+
+  .hero-video-frame {
+    margin: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .hero-note {
     margin-top: 34px;
-  }
-
-  .hero-art {
-    height: min(72vw, 410px);
-    min-height: 270px;
   }
 
   .hero-side-label {
@@ -1271,7 +1314,7 @@ h1 em, h2 em {
 
   .tradition {
     grid-template-columns: 1fr;
-    gap: 38px;
+    gap: 0;
     padding-top: 68px;
     padding-bottom: 68px;
   }
