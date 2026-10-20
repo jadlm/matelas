@@ -200,7 +200,7 @@ function MattressDetails() {
 }
 
 function TraditionVideo() {
-  const videoUrl = '/video/matelasvideo.mp4';
+  const videoUrl = `${import.meta.env.BASE_URL}video/matelasvideo.mp4`;
   const [videoFailed, setVideoFailed] = useState(false);
 
   return (
